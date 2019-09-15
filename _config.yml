@@ -1,0 +1,34 @@
+title: Dev Dump Logs
+description: Relevance. Depth. ...........Random
+permalink: ':title/'
+baseurl: "" 
+url: ""
+
+# About Settings
+author: Gabriel Ian Escober Abel
+author-img: me.png 
+about: >
+  Relevance. </br> 
+  Depth. </br>
+  ........... Random
+social-twitter: _IanEscober
+social-github: IanEscober
+social-linkedin: IanEscober
+social-email: gabrielabel_69@yahoo.com
+
+# Disqus
+discus-identifier: 
+
+# Tracker
+analytics: 
+
+# Build Settings
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jemoji
+
+paginate: 7
+paginate_path: "/page/:num"
+
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]

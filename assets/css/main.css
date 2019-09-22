@@ -210,6 +210,8 @@ audio:not([controls]) {
  * Remove the border on images inside links in IE 10-.
  */
 img {
+  width: 70%;
+  height: 70%;
   border-style: none;
 }
 
@@ -1417,10 +1419,8 @@ a.newer-posts:hover {
     margin: 10px auto auto;
   }
   .about img {
-    width: 100px;
-    height: 100px;
-    -webkit-border-radius: 100%;
-            border-radius: 100%;
+    width: 30%;
+    height: 30%;
     margin-bottom: 10px;
   }
   .content-box {

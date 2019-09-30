@@ -3,16 +3,19 @@ layout: main
 ---
 <article class="article-page">
   <div class="page-content">
-    {% if page.img %}
+    {% if page.img or page.ext-img %}
     <div class="page-cover-image">
       <figure>
+        {% if page.img %}
         <img class="page-image" src={{ "/assets/img/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}">
+        {% elsif page.ext-img %}
+        <img class="page-image" src={{ page.ext-img }} alt="{{page.title}}">
+        {% endif %}
         {% if page.fig-caption %}
           <figcaption>{{page.fig-caption}}</figcaption>
         {% endif %}
       </figure>
     </div> <!-- End Page Cover Image -->
-    {% else %}
     {% endif %}
     <div class="wrap-content">
       <header class="header-page">

@@ -3,11 +3,12 @@ layout: post
 title: What is Dev Dump Logs?
 date: 2019-09-29 20:49:20 +0800
 description: Initial blog post that introduces the style and expected contents of the blog
-img: logo.png
-fig-caption: Dev Dump Logs Logo
+ext-img: https://drive.google.com/uc?export=view&id=1gTQOrE_3GmzXLIFnbHUwN-MP_ZdHol_X
+fig-caption: Questions
 tags: [Blog, DDL]
 ---
 > _"Software ever evolves but concepts remain the same"_
+{: style="font-size: 130%;"}
 
 Dev Dump Logs will serve as a “log” of today’s software concepts – from language constructs to enterprise architecture patterns. 
 
@@ -21,6 +22,8 @@ Dev Dump Logs will serve as a “log” of today’s software concepts – from 
 ### Random
 - The blog will be written in random to keep our palettes fresh. Topics can cover a broad range of spectrum and each post can have non to little connection on the previous or future posts, but series are planned for a cohesive set of topics for organization. 
 
+![Microsoft Stack](https://drive.google.com/uc?export=view&id=1T5UlUeaIm-q9nEMEgaOhhYTNkg8fPl5m)
+{: style="text-align: center;"}
 ## Stack
 Mainly, I play around the Microsoft stack for the backend and Angular or React for the frontend. So the blog will focus on technologies around these, but plans for learning new paradigms is on track. It really does not matter as the saying from above, “Software ever evolves but concepts remain the same”, if a topic is written in C# it can be easily translated to any OOP languages since the concepts remain the same. The blog will provide enough depth on the topic in order to easily translate it to any language you work on.
 

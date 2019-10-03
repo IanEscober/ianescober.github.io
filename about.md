@@ -28,20 +28,23 @@ Below is the span of my technical know-how:
 
 Projects
 ========
-__Wasteman (2019)__
+__Wasteman (2019)__ - [src](https://github.com/IanEscober/WasteMan)
 - A solid waste management dashboard. It utilizes a Message Queue (MQTT) to receive data from the IoT-based devices. Data was cached on Redis and persisted on MongoDB. Hand-made algorithms (SPF & DFS) process the data and WebSockets enabled the transmission over the client (WasteMan-Client) in real-time.
 
 ![Wasteman](https://drive.google.com/uc?export=view&id=15P7mHYP56yF2AKxKEOsNS-DcET-vaBe0)
-{: style="width: 50%; height: 50%; display: block; margin: 0 auto;"}
+{: style="width: 80%; height: 80%; display: block; margin: 0 auto;"}
 
-__WasteMan-Client (2019)__
+__WasteMan-Client (2019)__ - [src](https://github.com/IanEscober/WasteMan-Client)
 - A single page application that consumes and visualize the data received and processed by the backend (Wasteman) through graphs, gauges, and maps.
 
 ![Wasteman Client](https://drive.google.com/uc?export=view&id=1PcoBqN0OjmgMeu4tg6UnymC2c6lxkAaD)
 {: style="width: 80%; height: 50%; display: block; margin: 0 auto;"}
 
-__MongoDB Value Tuple Serializer (2018)__
+__MongoDB Value Tuple Serializer (2018)__ -  [src](https://github.com/IanEscober/MongoDB-ValueTuple-Serializer)
 - A serializer and deserializer of a new type introduced in C# 7 (Value Tuple) for MongoDB.
+
+![Nuget Package](https://drive.google.com/uc?export=view&id=1hHNEmd2mRRsAuEbBQKGfg4pxyt6Coyon)
+{: style="width: 80%; height: 80%; display: block; margin: 0 auto;"}
 
 Publications
 ============

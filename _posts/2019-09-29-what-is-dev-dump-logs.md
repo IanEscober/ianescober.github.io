@@ -4,7 +4,6 @@ title: What is Dev Dump Logs?
 date: 2019-09-29 20:49:20 +0800
 description: Initial blog post that introduces the style and expected contents of the blog
 ext-img: https://drive.google.com/uc?export=view&id=1gTQOrE_3GmzXLIFnbHUwN-MP_ZdHol_X
-fig-caption: Questions
 tags: [Blog]
 ---
 

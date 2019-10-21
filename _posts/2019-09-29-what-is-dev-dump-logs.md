@@ -25,7 +25,7 @@ Dev Dump Logs will serve as a “log” of today’s software concepts – from 
 ![Microsoft Stack](https://drive.google.com/uc?export=view&id=1T5UlUeaIm-q9nEMEgaOhhYTNkg8fPl5m)
 {: style="text-align: center;"}
 # Stack
-Mainly, I play around the Microsoft stack for the backend and Angular or React for the frontend. So the blog will focus on technologies around these, but plans for learning new paradigms is on track. It really does not matter as the saying from above, “Software ever evolves but concepts remain the same”, if a topic is written in C# it can be easily translated to any OOP languages since the concepts remain the same. The blog will provide enough depth on the topic in order to easily translate it to any language you work on.
+The image above should give an idea of what I would be tackling. Mainly, I play around the Microsoft stack for the backend and Angular or React for the frontend. So the blog will focus on technologies around these, but plans for learning new paradigms is on track. It really does not matter as the saying from above, “Software ever evolves but concepts remain the same”, if a topic is written in C# it can be easily translated to any OOP languages since the concepts remain the same. The blog will provide enough depth on the topic in order to easily translate it to any language you work on.
 
 # Summary
 In summary, this blog is going to be our journey on gaining knowledge on creating high quality software. It will be deep enough but not too deep that it will be a chore to read and light enough to keep it fun and refreshing.  

@@ -1,9 +1,11 @@
-_site
-.sass-cache
-.jekyll-metadata
-.jekyll-cache/
-yarn.lock
-Gemfile.lock
-package-lock.json
-node_modules/
+.*
+*.pyc
 
+# jekyll debug
+_site
+
+# Jeykll Gemfile.lock
+Gemfile.lock
+
+# yui-compressor
+*.jar

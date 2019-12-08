@@ -1,36 +1,166 @@
+# jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
+#--------------------------
+
 title: Dev Dump Logs
-description: Relevance. Depth. ...........Random
-permalink: ':title/'
-baseurl: "" 
-url: ""
 
-# About Settings
-author: Gabriel Ian Escober Abel
-blog: dev dump logs
-blog-img: logo.png
-about: >
-  Relevance. </br> 
-  Depth. </br>
-  ........... Random
+description: 'Relevance. Depth. ...........Random'
+
+url: 'https://ianescober.github.io'
+
 author: Gabriel Ian E. Abel
-social-twitter: _IanEscober
-social-github: IanEscober
-social-linkedin: IanEscober
-social-email: gabrielabel_69@yahoo.com
 
-# Disqus
-discus-identifier: 
+avatar: /assets/img/sample/avatar.jpg
 
-# Tracker
-analytics: 
+github:
+  username: ianescober
 
-# Build Settings
-plugins:
-  - jekyll-sitemap
-  - jekyll-paginate
-  - jemoji
+twitter:
+  username: _ianescober
 
-paginate: 7
-paginate_path: "/page/:num"
+social:
+  name: Gabriel Ian E. Abel
+  email: gabrielabel_69@yahoo.com
+  links:
+    # The first element serves as the copyright owner's link
+    - https://github.com/ianescober
+    - https://twitter.com/_ianescober
+    # Uncomment below to add more social links
+    # - https://www.facebook.com/username
+    # - https://www.linkedin.com/in/username
 
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
+google_site_verification: google_meta_tag_verification # change to your verification string
+
+#--------------------------
+
+# Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
+timezone: Asia/Manila
+
+google_analytics:
+  # Fill with your Google Analytics ID
+  id: ''
+  # The Google Analytics pageviews switch.
+  # DO NOT enable it unless you know how to deploy the Google Analytics superProxy.
+  pv: false
+  # superProxy Url, only valid when `google_analytics.pv` is set to 'true'
+  proxy_url: ''
+
+disqus:
+  shortname: 'disqus'   # Change to your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+  comments: true        # boolean type, the global switch for posts comments.
+
+# The year your website was first run.
+first_run: 2019
+
+# boolean type, global switch for ToC in posts.
+toc: true
+
+
+# if your site type is Project Pages site, change below value to '/projectname'
+baseurl: ''
+
+paginate: 10
+
+markdown: kramdown
+
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
+    css_class: 'highlight'
+    # default_lang: console
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+permalink: /posts/:title/
+
+defaults:
+  -
+    scope:
+      path: ""          # An empty string here means all files in the project
+      type: posts
+    values:
+      layout: post
+      comments: true    # Enable comments in posts.
+      toc: true         # Display TOC column in posts.
+      location: Post
+      breadcrumb:
+        -
+          label: Posts
+          url: /
+  -
+    scope:
+      path: _drafts
+    values:
+      comments: false
+  -
+    scope:
+      path: tags
+    values:
+      location: Tag
+      breadcrumb:
+        -
+          label: Home
+          url: /
+        -
+          label: Tags
+          url: /tabs/tags/
+  -
+    scope:
+      path: categories
+    values:
+      location: Category
+      breadcrumb:
+        -
+          label: Home
+          url: /
+        -
+          label: Categories
+          url: /tabs/categories/
+  -
+    scope:
+      path: tabs
+    values:
+      layout: page
+      dynamic_title: true    # Hide title in mobile screens.
+      breadcrumb:
+        -
+          label: Home
+          url: /
+
+sass:
+  sass_dir: /assets/css
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: [html, head, body, dt, dd, rt, rp, optgroup, option, colgroup, caption, thead, tbody, tfoot, tr, td, th]
+  profile: false
+  blanklines: false
+  ignore:
+    envs: []
+
+exclude:
+  - vendor/       # Avoid Jekyll mistakenly read the vender directory on Travis-CI's VM .
+  - Gemfile.lock
+  - Gemfile
+  - run.sh
+  - build.sh
+  - init.sh
+  - pv.sh
+
+sitemap_exclude:  # Sitemap will exclude the following items.
+  - /norobots/
+  - /assets/
+  - /tabs/
+  - /categories/
+  - /tags/
+  - /posts/
+  - /404.html
+  - /redirects.json
+  - /search.json

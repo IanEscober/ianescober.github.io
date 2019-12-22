@@ -41,7 +41,7 @@ body {
   -webkit-transition: transform 0.4s ease;
   transition: transform 0.4s ease;
   background: rgb(42, 30, 107);
-  background: radial-gradient(circle, rgba(42, 30, 107, 1) 0%, rgba(35, 37, 46, 1) 100%);
+  background: linear-gradient(#faed9f 10%, #cc6d0f 100%);
 }
 
 #sidebar a {
@@ -144,9 +144,9 @@ body {
 
 #avatar>a {
   display: block;
-  width: 6rem;
-  height: 6rem;
-  border-radius: 50%;
+  width: 8rem;
+  height: 7rem;
+  border-radius: 10%;
   border: 2px solid #b6b6b6;
   overflow: hidden;
   transform: translateZ(0); /* fixed the zoom in Safari */

@@ -3,6 +3,8 @@ title: Dynamic Binding in Azure Functions
 date: 2019-10-06 22:48:20 +0800
 categories: [Tech, Azure]
 tags: [Azure, Serverless, Functions, Blob]
+seo:
+  date_modified: 2019-12-24 14:15:57 +0800
 ---
 
 ![Azure Functions Binding](https://drive.google.com/uc?export=view&id=1Ba3ZR6SyMFvhSZ2ubmAghuyOH_KxIDrp)

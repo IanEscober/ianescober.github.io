@@ -17,6 +17,9 @@ github:
 twitter:
   username: _ianescober
 
+linkedin:
+  username: ianescober
+
 social:
   name: Gabriel Ian E. Abel
   email: gabrielabel_69@yahoo.com
@@ -24,11 +27,11 @@ social:
     # The first element serves as the copyright owner's link
     - https://github.com/ianescober
     - https://twitter.com/_ianescober
+    - https://www.linkedin.com/in/ianescober
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
 
-google_site_verification: google_meta_tag_verification # change to your verification string
+google_site_verification: googlee101eec34c9c0a16.html # change to your verification string
 
 #--------------------------
 
@@ -45,7 +48,7 @@ google_analytics:
   proxy_url: ''
 
 disqus:
-  shortname: 'disqus'   # Change to your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+  shortname: 'https-ianescober-github-io'   # Change to your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
   comments: true        # boolean type, the global switch for posts comments.
 
 # The year your website was first run.

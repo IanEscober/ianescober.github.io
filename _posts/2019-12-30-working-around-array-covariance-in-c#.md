@@ -3,6 +3,8 @@ title: Working Around Array Covariance in C#
 date: Y2019-12-30 11:25:20 +0800
 categories: [Tech, C#]
 tags: [C#, Design Patterns, Hack]
+seo:
+  date_modified: 2019-12-31 12:29:39 +0800
 ---
 
 Covariance and contravariance are esoteric topics in the programming world. Upon hearing them for the first time we think of them as arcane knowledge with complex mathematics bounded with it. Partially this is true, see [Category Theory](https://plato.stanford.edu/entries/category-theory/), but they are actually used in our everyday programming. The moment you create abstractions in your code, covariance or contravariance or both are applied. In essence:

@@ -137,3 +137,7 @@
     margin-right: calc((100% - 1150px) / 8 + 300px);
   }
 }
+
+img + em { 
+  font-size: 12px;
+}

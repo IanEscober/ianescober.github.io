@@ -5,7 +5,7 @@ categories: [Tech, C#]
 tags: [C#, Design Patterns, Series]
 ---
 
-Design Patterns we know it, we use it, it is everywhere. If so happens you have not come across it, there are numerous blogs, videos, and books where you can learn about Design Patterns. I personally recommend the original book by the [Gang of Four](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612) and it will also be the basis of this series. If there are tons of resources out there, books written in depth, amazing courses, etc. Why am i writing yet another blog post about Design Patterns? Well, I have yet seen a post where it __summarizes the Design Patterns:__
+Design Patterns we know it, we use it, it is everywhere. If so happens you have not come across it, there are numerous blogs, videos, and books where you can learn about Design Patterns. I personally recommend the original book by the [Gang of Four](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612) and it will also be the basis of this series. Now, if there are tons of resources out there, books written in depth, amazing courses, etc. Why am i writing yet another blog post about Design Patterns? Well, I have yet seen a post where it __summarizes the Design Pattern's:__
 - __When__
 - __Effects__
 - __Relationships__
@@ -15,15 +15,15 @@ I want this series to be a concise catalog of the Design Patterns with the categ
 # Creational Patterns
 ## Abstract Factory - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/AbstractFactory)
 ### When
-- A system should be independent of how its products are created, composed, and represented.
-- A system should be configured with one of multiple families of products.
-- A family of related product objects is designed to be used together, and you need to enforce this constraint.
-- You want to provide a class library of products, and you want to reveal just their interfaces, not their implementations. 
+- A system needs to seperate the creation, composition, and represetation of its products.
+- A system produces products from various groups.
+- A group of related products is used and needs to be together.
+- You want to hide the implementation of a library of products.
 ### Effects
-- It isolates concrete classes.
-- It makes exchanging product families easy.
-- It promotes consistency among products.
-- Supporting new kinds of products is difficult.
+- It encapsulates concrete classes.
+- It simplifies the product groups replacement. 
+- It enforces consistency among products.
+- It adds difficulty to supporting new product groups.
 ### Relationships
 - Often implemented with __Factory Method__
 - Often implemented with __Prototype__

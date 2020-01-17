@@ -31,42 +31,42 @@ I want this series to be a concise catalog of the Design Patterns with the categ
 
 ## Builder - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Builder)
 ### When
-- The algorithm for creating a complex object should be independent of the parts that make up the object and how they're assembled.
-- The construction process must allow different representations for the object that's constructed.
+- The building logic of complex objects must be seperated.
+- The building process have multiple representation of the complex object being constructed.
 ### Effects
-- It lets you vary a product's internal representation.
-- It isolates code for construction and representation.
-- It gives you finer control over the construction process.
+- It seperates the products representation.
+- It encapsulates building and representation seperately.
+- It provides fine-grained control on the building process.
 ### Relationships
-- __Abstract Factory__ emphasizes families of product object. Builder focuses on constructing a complex object step by step.
+- __Abstract Factory__ focuses on creating families of products. Builder focuses on building a complex object in a step by step manner.
 - A __Composite__ is what the builder often builds.
 
 ## Factory Method - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/FactoryMethod)
 ### When
-- A class can't anticipate the class of objects it must create.
-- A class wants its subclasses to specify the objects it creates.
-- Classes delegate responsibility to one of several helper subclasses, and you want to localize the knowledge of which helper subclass is the delegate.
+- A class have no knowledge the objects to be created.
+- A class wants to delegate the object creation to its subclasses.
+- Classes pass the process to other helper subclasses, and you want to encapsulate that helper subclass.
 ### Effects
-- Provides hooks for subclasses
+- Allows extensions of an object by providing a hook.
 - Connects parallel class hierarchies.
 ### Relationships
-- __Abstract Factory__ is often implemented with Factory Methods.
-- Factory Methods are usually called within __Template Methods__.
-- __Prototypes__ don not require subclassing Creator. While Factory Method does not require such an operation.
+- __Abstract Factory__ is implemented with Factory Methods.
+- Factory Methods are usually executed within __Template Methods__.
+- __Prototypes__ do not require subclassing Creator. While Factory Method does not require such an operation.
 
 ## Prototype - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Prototype)
 ### When
-- When the classes to instantiate are specified at run-time, for example, by dynamic loading; or
-- To avoid building a class hierarchy of factories that parallels the class hierarchy of products; or
-- When instances of a class can have one of only a few different combinations of state. It may be more convenient to install a corresponding number of prototypes and clone them rather than instantiating the class manually, each time with the appropriate state.
+- The classes are instantiated dynamically (run-time).
+- You want to avoid a hierarchy of factories that matches the depth of the product it creates.
+- There are only a few combinations of state a class can have.
 ### Effects
-- Adding removing products at run-time.
+- Dynamically (run-time) add or remove objects.
 - Specifying new objects by varying values.
 - Specifying new objects by varying structure.
 - Reduced subclassing.
 - Configuring an application with classes dynamically.
 ### Relationships
-- An __Abstract Factory__ might store a set of prototypes from which to clone and return to product objects.
+- An __Abstract Factory__ can store a set of prototypes from which to clone.
 - __Composite__ and __Decorator__ can benefit from Prototype as well.
 
 ## Singleton - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Singleton)

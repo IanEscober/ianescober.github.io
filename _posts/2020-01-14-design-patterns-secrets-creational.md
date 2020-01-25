@@ -5,7 +5,7 @@ categories: [Tech, C#]
 tags: [C#, Design Patterns, Series]
 ---
 
-![Building Blocks](/assets/img/building-blocks.png)
+![Building Blocks](https://drive.google.com/uc?export=view&id=18b0G0agdx-vBMgL23EKEIbSE7LqA9iph)
 Design Patterns we know it, we use it, it is everywhere. If so happens you have not come across it, there are numerous blogs, videos, and books where you can learn about Design Patterns. I personally recommend the original book by the [Gang of Four](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612) and it will also be the basis of this series. Now, if there are tons of resources out there, books written in depth, amazing courses, etc. Why am i writing yet another blog post about Design Patterns? Well, I have yet seen a post where it __summarizes the Design Pattern's:__
 - __When__
 - __Effects__
@@ -20,6 +20,7 @@ I want this series to be a concise catalog of the Design Patterns with the categ
 - A system produces products from various groups.
 - A group of related products is used and needs to be together.
 - You want to hide the implementation of a library of products.
+
 ### Effects
 - It encapsulates concrete classes.
 - It simplifies the product groups replacement.
@@ -35,10 +36,12 @@ I want this series to be a concise catalog of the Design Patterns with the categ
 ### When
 - The building logic of complex objects must be seperated.
 - The building process have multiple representation of the complex object being constructed.
+
 ### Effects
 - It seperates the products representation.
 - It encapsulates building and representation seperately.
 - It provides fine-grained control on the building process.
+
 ### Relationships
 - __Abstract Factory__ focuses on creating families of products. Builder focuses on building a complex object in a step by step manner.
 - A __Composite__ is what the builder often builds.
@@ -48,11 +51,13 @@ I want this series to be a concise catalog of the Design Patterns with the categ
 - A class have no knowledge the objects to be created.
 - A class wants to delegate the object creation to its subclasses.
 - Classes pass the process to other helper subclasses, and you want to encapsulate that helper subclass.
+
 ### Effects
 - Eliminates the need to bind concrete classes.
 - Allows extensions of an object by providing a hook.
 - Connects parallel class hierarchies.
 - Clients might have to subclass a "Creator" class in order to create a particular concrete class.
+
 ### Relationships
 - __Abstract Factory__ is implemented with Factory Methods.
 - Factory Methods are usually executed within __Template Methods__.
@@ -63,6 +68,7 @@ I want this series to be a concise catalog of the Design Patterns with the categ
 - The classes are instantiated dynamically (run-time).
 - You want to avoid a hierarchy of factories that matches the depth of the product it creates.
 - There are only a few combinations of state a class can have.
+
 ### Effects
 - Encapsulates concrete types to reduce client knowledge (coupling).
 - Work with application-specific classes without alteration.
@@ -71,6 +77,7 @@ I want this series to be a concise catalog of the Design Patterns with the categ
 - Create new objects by reusing (cloning) subclasses. 
 - Reduced subclassing.
 - Configuring an application with classes dynamically.
+
 ### Relationships
 - An __Abstract Factory__ can store a set of prototypes to clone from.
 - __Composite__ and __Decorator__ can benefit from Prototype as well.
@@ -78,12 +85,14 @@ I want this series to be a concise catalog of the Design Patterns with the categ
 ## Singleton - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Singleton)
 ### When
 - only one instance of class is needed and it must be globally known.
-- the sole instance is extensible by subclassing and should not affect clients after.  
+- the sole instance is extensible by subclassing and should not affect clients after.
+
 ### Effects
 - Controlled access to sole instance.
 - Reduced name space.
 - Allows to dynamically load objects as well as extension.
 - Allows a variable number of instances (Multiton).
 - More flexible than class operations.
+
 ### Relationships
 - These patterns can be implemented in Singleton: __Abstract Factory, Builder,__ and __Prototype__.

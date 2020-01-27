@@ -3,6 +3,8 @@ title: Design Pattern Secrets - Creational
 date: Y2020-01-14 15:46:20 +0800
 categories: [Tech, C#]
 tags: [C#, Design Patterns, Series]
+seo:
+  date_modified: 2020-01-14 15:46:20 +0800
 ---
 
 ![Building Blocks](https://drive.google.com/uc?export=view&id=18b0G0agdx-vBMgL23EKEIbSE7LqA9iph)

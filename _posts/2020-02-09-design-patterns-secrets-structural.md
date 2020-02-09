@@ -1,0 +1,29 @@
+---
+title: Design Pattern Secrets - Structural
+date: Y2020-02-09 21:47:20 +0800
+categories: [Tech, C#]
+tags: [C#, Design Patterns, Series]
+---
+
+Continuing from the last post covering the [Creational Design Pattern Secrets](https://ianescober.github.io/posts/design-patterns-secrets-creational/), this post will also be structured again in:
+- __When__
+- __Effects__
+- __Relationships__
+
+As said before this will be a quick catalog of information that are rarely highlighted about Design Patterns. Examples can be found at my [Github](http://github.com/ianescober/designpatterns).
+
+# Creational Patterns
+## Adapter - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Adapter)
+### When
+- An interface of a class do not coincide with your needs.
+- A common class that mediates other incompatible classes with each other.
+- A need to use several classes or interfaces without inheriting.
+### Effects
+- A single reusable class can work with many other classes.
+- The Adapter class can override some behavior of the classes it is supporting.
+- The Adapter class is prone to "doing to much".
+
+### Relationships
+- Similar to __Bridge__ which is about seperating interfaces from implementation while Adapter is about modifying interfaces to make it work with other.
+- Similar to __Decorator__ which adds funcionality to classes without altering its interface. Supporting recursive implementation, which is not possible with Adapter.
+- Similar to __Proxy__ which creates a "proxy" to make classes work with each other.

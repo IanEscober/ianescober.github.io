@@ -86,8 +86,8 @@ I want this series to be a concise catalog of the Design Patterns with the categ
 
 ## Singleton - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Singleton)
 ### When
-- only one instance of class is needed and it must be globally known.
-- the sole instance is extensible by subclassing and should not affect clients after.
+- Only one instance of class is needed and it must be globally known.
+- The sole instance is extensible by subclassing and should not affect clients after.
 
 ### Effects
 - Controlled access to sole instance.

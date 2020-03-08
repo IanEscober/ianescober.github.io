@@ -27,3 +27,16 @@ As said before this will be a quick catalog of information that are rarely highl
 - Similar to __Bridge__ which is about seperating interfaces from implementation while Adapter is about modifying interfaces to make it work with other.
 - Similar to __Decorator__ which adds funcionality to classes without altering its interface. Supporting recursive implementation, which is not possible with Adapter.
 - Similar to __Proxy__ which creates a "proxy" to make classes work with each other.
+
+## Bridge - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Bridge)
+### When
+- A need to prevent coupling of abstraction and implementation.
+- Abstractions of implementations can be mixed and match or vice versa.
+- Changes to abstractions should be tranparent to the clients.
+### Effects
+- Assignment of implementation to abstraction can happen dynamically.
+- Implementations and abstractions can be scaled independently.
+- Clients are unaffected by changes in implementations and abstractions.
+### Relationships
+- A Bridge can be create by __Abstract Factory__.
+- The goal of the __Adapter__ pattern is to make classes work together. While Bridge aims to generalize abstractions and implementations.

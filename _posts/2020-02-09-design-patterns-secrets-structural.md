@@ -40,3 +40,16 @@ As said before this will be a quick catalog of information that are rarely highl
 ### Relationships
 - A Bridge can be create by __Abstract Factory__.
 - The goal of the __Adapter__ pattern is to make classes work together. While Bridge aims to generalize abstractions and implementations.
+
+## Composite - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Composite)
+### When
+- Objects can be decomposed to tree structures.
+- Objects and sub objects should be treated in a similar fashion by the client. 
+### Effects
+- Objects mimics structured hierarchies of its business representation.
+- Simplifies the client by omitting type checking since composites are treated uniformly.
+- Design can become too generic, filtering and restricting composites fallback to type checking.
+### Relationships
+- Composites can be traversed using the __Iterator__ pattern.
+- Operations shared in the composite structure can be abstracted by the __Visitor__ pattern.
+- The links in the __Chain of Responsibility__ and __Decorator__ pattern is usually a composite.

@@ -53,3 +53,18 @@ As said before this will be a quick catalog of information that are rarely highl
 - Composites can be traversed using the __Iterator__ pattern.
 - Operations shared in the composite structure can be abstracted by the __Visitor__ pattern.
 - The links in the __Chain of Responsibility__ and __Decorator__ pattern is usually a composite.
+
+## Decorator - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Decorator)
+### When
+- Functionality must be added dynamically.
+- And removed dynamically.
+- Adding responsibilites to classes produces unecessary amount of subclasses.
+### Effects
+- More flexible and concise addition of responsibility to objects.
+- Features are added when they are needed. Classes are not prepared for the future uses making it lightweight.
+- Although the decorator is transparent to the client, type checking can see it different from the what it is decorating on.
+- Loss of cohesion since the responsibility is spread over little objects.
+### Relationships
+- The __Adapter__ pattern combines functionality while the decorator pattern adds it.
+- A decorator is a __Composite__ with one node.
+- The decorator pattern changes the surface of a class, while the __Strategy__ pattern changes the insides of it.

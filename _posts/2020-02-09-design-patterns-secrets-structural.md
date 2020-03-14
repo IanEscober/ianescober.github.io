@@ -68,3 +68,17 @@ As said before this will be a quick catalog of information that are rarely highl
 - The __Adapter__ pattern combines functionality while the decorator pattern adds it.
 - A decorator is a __Composite__ with one node.
 - The decorator pattern changes the surface of a class, while the __Strategy__ pattern changes the insides of it.
+
+## Facade - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Facade)
+### When
+- A complex system can be exposed into a simple abstraction.
+- Responsibility of the client on implementing abstraction of a system can be hidden.
+- A system can be layered.
+### Effects
+- Hides the complexity of a system, making it easier to implement.
+- Only hides the complex system, client still has a choice to directly use the complex system.
+- Reduces clients coupling to the abstraction implmentation logic.
+### Relationships
+- __Abtract Factory__ can be used with facade to centralize object creation.
+- One instace of Facade is usually enough allowing it to be __Singleton__.
+- The __Mediator__ pattern is similar in a way to Facade in that it centralizes the communication logic of components. The components of the Mediator are aware of the Mediator while the Facade is trasparent to the systems it encapsulate.

@@ -12,33 +12,33 @@ Continuing from the last post covering the [Creational Design Pattern Secrets](h
 
 As said before this will be a quick catalog of information that are rarely highlighted about Design Patterns. Examples can be found at my [Github](http://github.com/ianescober/designpatterns).
 
-# Creational Patterns
+# Structural Patterns
 ## Adapter - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Adapter)
 ### When
 - An interface of a class do not coincide with your needs.
-- A common class that mediates other incompatible classes with each other.
-- A need to use several classes or interfaces without inheriting.
+- A need for a common class that connects other incompatible classes with each other.
+- A need to use several classes or interfaces without utilizing inheritance.
 ### Effects
-- A single reusable class can work with many other classes.
+- A single reusable class that can work with many other classes.
 - The Adapter class can override some behavior of the classes it is supporting.
 - The Adapter class is prone to "doing to much".
 
 ### Relationships
-- Similar to __Bridge__ which is about seperating interfaces from implementation while Adapter is about modifying interfaces to make it work with other.
-- Similar to __Decorator__ which adds funcionality to classes without altering its interface. Supporting recursive implementation, which is not possible with Adapter.
-- Similar to __Proxy__ which creates a "proxy" to make classes work with each other.
+- Similar to the __Bridge__ pattern which is about seperating interfaces from implementation while Adapter is about modifying interfaces to make it work with each other.
+- Similar to the __Decorator__ pattern which adds funcionality to classes without altering its interface. Supporting recursive implementation, which is not possible with Adapter.
+- Similar to the __Proxy__ pattern which creates a "proxy" to make classes work with each other.
 
 ## Bridge - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Bridge)
 ### When
-- A need to prevent coupling of abstraction and implementation.
+- Coupling of abstraction and implementation must be prevented.
 - Abstractions of implementations can be mixed and match or vice versa.
-- Changes to abstractions should be tranparent to the clients.
+- Changes to abstractions should be transparent to the clients.
 ### Effects
-- Assignment of implementation to abstraction can happen dynamically.
+- Assignment of implementation to abstractions can happen dynamically.
 - Implementations and abstractions can be scaled independently.
 - Clients are unaffected by changes in implementations and abstractions.
 ### Relationships
-- A Bridge can be create by __Abstract Factory__.
+- A Bridge can be create by the __Abstract Factory__ pattern.
 - The goal of the __Adapter__ pattern is to make classes work together. While Bridge aims to generalize abstractions and implementations.
 
 ## Composite - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Composite)
@@ -56,7 +56,7 @@ As said before this will be a quick catalog of information that are rarely highl
 
 ## Decorator - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Decorator)
 ### When
-- Functionality must be added dynamically.
+- Functionality must be added dynamically -
 - And removed dynamically.
 - Adding responsibilites to classes produces unecessary amount of subclasses.
 ### Effects
@@ -82,3 +82,28 @@ As said before this will be a quick catalog of information that are rarely highl
 - __Abtract Factory__ can be used with facade to centralize object creation.
 - One instace of Facade is usually enough allowing it to be __Singleton__.
 - The __Mediator__ pattern is similar in a way to Facade in that it centralizes the communication logic of components. The components of the Mediator are aware of the Mediator while the Facade is trasparent to the systems it encapsulate.
+
+## Flyweight - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Flyweight)
+### When
+- A large amounts of unchanging objects are used within the application.
+- The storage performance suffers from the said objects.
+- The state (extrinsic) or operation of the objects can be abstracted outside of it.
+- Abtracting the state (extrinsic) allows objects to be shared.
+- Absence of type checking of the said objects.
+### Effects
+- Reduced space consumption.
+### Relationships
+- The __Composite__ pattern allows optimized querying of the Flyweight objects by representing them in a tree structure.
+- Large amounts of __State__ and __Strategy__ objects can be represented as Flyweights.
+
+## Proxy - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Proxy)
+### When
+- Object creation can be deferred for responsiveness.
+- Access restrictions must be imposed to objects.
+- Objects being used must be tracked for caching.
+### Effects
+- Object accessing and creation is optimized.
+- A layer of safety is added to the object being proxied.
+### Relationships
+- The proxy pattern rivals the __Adapter__ pattern. The proxy pattern copies the subject (class) interface while the __Adapter__ pattern created a new interface to connect subjects.
+- The proxy patter also rivals the __Decorator__ pattern. The proxy pattern controls access to the subject while the __Decorator__ pattern adds functionalities to the subjects.

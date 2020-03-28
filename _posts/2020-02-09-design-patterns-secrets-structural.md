@@ -5,12 +5,11 @@ categories: [Tech, C#]
 tags: [C#, Design Patterns, Series]
 ---
 
-Continuing from the last post covering the [Creational Design Pattern Secrets](https://ianescober.github.io/posts/design-patterns-secrets-creational/), this post will also be structured again in:
+![Hierarchy](https://drive.google.com/uc?export=view&id=1c4WPE0vT_L5GdGMA1C3EmaEq9dWXMw-w)
+Continuing from the last post covering the [Creational Design Pattern Secrets](https://ianescober.github.io/posts/design-patterns-secrets-creational/), now we will be covering the __Structural Design Pattern Secrets__. As said before this will be a quick catalog of information that are rarely highlighted about Design Patterns. Examples can be found at my [Github](http://github.com/ianescober/designpatterns). The catalog would be again structured in:
 - __When__
 - __Effects__
 - __Relationships__
-
-As said before this will be a quick catalog of information that are rarely highlighted about Design Patterns. Examples can be found at my [Github](http://github.com/ianescober/designpatterns).
 
 # Structural Patterns
 ## Adapter - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Adapter)

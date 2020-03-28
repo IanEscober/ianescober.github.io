@@ -3,6 +3,8 @@ title: Design Pattern Secrets - Structural
 date: Y2020-02-09 21:47:20 +0800
 categories: [Tech, C#]
 tags: [C#, Design Patterns, Series]
+seo:
+  date_modified: 2020-02-09 21:47:20 +0800
 ---
 
 ![Hierarchy](https://drive.google.com/uc?export=view&id=1c4WPE0vT_L5GdGMA1C3EmaEq9dWXMw-w)

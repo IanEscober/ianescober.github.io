@@ -1,8 +1,8 @@
 ---
 title: Design Pattern Secrets - Structural
 date: Y2020-02-09 21:47:20 +0800
-categories: [Tech, C#]
-tags: [C#, Design Patterns, Series]
+categories: [Tech, Csharp]
+tags: [Csharp, Design Patterns, Series]
 seo:
   date_modified: 2020-02-09 21:47:20 +0800
 ---

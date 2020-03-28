@@ -1,8 +1,8 @@
 ---
 title: Working Around Array Covariance in C#
 date: Y2019-12-30 11:25:20 +0800
-categories: [Tech, C#]
-tags: [C#, Design Patterns, Hack]
+categories: [Tech, Csharp]
+tags: [Csharp, Design Patterns, Hack]
 seo:
   date_modified: 2019-12-31 12:29:39 +0800
 ---

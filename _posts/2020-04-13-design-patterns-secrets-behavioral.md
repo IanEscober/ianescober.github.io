@@ -46,4 +46,21 @@ As always the catalog would be again structured in:
 - Command histories is ecapsulated by the __Memento__ pattern.
 - For space optimization, the __Prototype__ pattern can create clones of Commands.
 
+<!-- Iterpreter Pattern -->
+
+## Iterator - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Iterator)
+### When
+- Provide a way to access sensitive data inside aggregates without exposing it.
+- Generalizing a pattern for traversing aggregates.
+- Supporting multiple traversal techniques.
+
+### Effects
+- Swapping traversal techniques in aggregates are simpler.
+- Aggregates logic are simplified since iteration logic is abstracted out in the Iterator.
+- Different iteration techniques can now be done concurrently.
+
+### Relationships
+- Iterations state can be stored by the __Memento__ pattern.
+- The traversing logic can be abstracted with the __Template Method__ pattern.
+
 I hope the series did not teach you anything.... well in someway. The goal of the series was never to "teach", actually the goal is pretty similar to the original "[Gang of Four](https://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional-ebook/dp/B000SEIBB8)" book, which was to __list__ the Design Patterns used by the industry. The series aimed to show the different aspects of the Design patterns which is not commonly talked about. I think these aspects are very important __before__ learning to the apply the Design Patterns. We as developers love to jump in right into the code, well for one thing it's more fun. But as a "Profesional Developer" we need to understand that sample code is not enough, we need to consider the whole picture to better formulate an elegant, robust, and succint solution. By providing these "Secrets" I aim to show the other half of the picture so we can deeply understand what a Design Pattern really is and not naively implementing it. Also, having it written in a blog allowed it to be ubiquitously available for everyone.

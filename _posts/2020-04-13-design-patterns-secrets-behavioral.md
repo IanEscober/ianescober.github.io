@@ -5,16 +5,17 @@ categories: [Tech, Csharp]
 tags: [Csharp, Design Patterns, Series]
 ---
 
+![Online Connection](https://drive.google.com/uc?export=view&id=1x_Bef7V88tmivLOSwG6AOb_aB1_htw3t)
 We are now on the last category of the Design Patterns which is the __Behavioral Patterns__, concluding this series. The "Secrets" of the previous two categories of this series can be found at:
  - [Creational Patterns](https://ianescober.github.io/posts/design-patterns-secrets-creational/)
  - [Structural Patterns](https://ianescober.github.io/posts/design-patterns-secrets-strcutural/)
 
-As always the catalog would be again structured in:
+Examples can be found at my [Github](http://github.com/ianescober/designpatterns) and as always the catalog would be again structured in:
 - __When__
 - __Effects__
 - __Relationships__
 
-# Structural Patterns
+# Behavioral Patterns
 ## Chain of Responsibility (Pipeline) - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Pipeline)
 ### When
 - A request needs to be handled multiple times.
@@ -46,7 +47,22 @@ As always the catalog would be again structured in:
 - Command histories is ecapsulated by the __Memento__ pattern.
 - For space optimization, the __Prototype__ pattern can create clones of Commands.
 
-<!-- Iterpreter Pattern -->
+## Interpreter - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Interpreter)
+### When
+- Transfroming a language represented by syntax trees.
+- The language grammar is simple.
+- Efficiency of transforming the language is not the upmost requirment.
+
+### Effects
+- Simplifies grammar modelling.
+- Allows extensions of transforming a language.
+- Complex grammar are praticlally unmaintainable, since a rule equates to a class.
+
+### Relationships
+- The syntax trees of the language is crafted with the __Composite__ pattern.
+- Languages often have several instances which can be optimized by the __Flyweight__ pattern.
+- Traversal over the syntax trees can be perfromed by the __Iterator__ pattern.
+- Behavior on each node on the sytnax trees can be operated by the __Visitor__ pattern.
 
 ## Iterator - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Iterator)
 ### When
@@ -151,4 +167,18 @@ As always the catalog would be again structured in:
 - The Template Method pattern is often compared with the __Strategy__ pattern. Template Method varies only a section of the bahavior while Strategy varies the whole behavior.
 - Template Methods are used to invoke __Factory Methods__.
 
-I hope the series did not teach you anything.... well in someway. The goal of the series was never to "teach", actually the goal is pretty similar to the original "[Gang of Four](https://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional-ebook/dp/B000SEIBB8)" book, which was to __list__ the Design Patterns used by the industry. The series aimed to show the different aspects of the Design patterns which is not commonly talked about. I think these aspects are very important __before__ learning to the apply the Design Patterns. We as developers love to jump in right into the code, well for one thing it's more fun. But as a "Profesional Developer" we need to understand that sample code is not enough, we need to consider the whole picture to better formulate an elegant, robust, and succint solution. By providing these "Secrets" I aim to show the other half of the picture so we can deeply understand what a Design Pattern really is and not naively implementing it.
+## Visitor - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/Visitor)
+### When
+- Unrelated operations must be performed on objects.
+- Apply new operations to classes with structures that rarely changes. 
+
+### Effects
+- Ease of adding new operations.
+- Unrelated operations are seperated from related ones.
+- Ability to store state on each "visit".
+- Couples implementations to an implementation of a visitor.
+- Needs public interfaces to perfrom operations, which compromises encapsulation.
+
+### Relationships
+- The object tree of the __Composite__ pattern can be operated by the Visitor pattern.
+- The interpretation of the __Interpreter__ pattern can be done by the Visitor pattern.

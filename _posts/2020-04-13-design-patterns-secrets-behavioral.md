@@ -98,12 +98,26 @@ As always the catalog would be again structured in:
 - Detection of changes needs to be encapsulated.
 
 ### Effects
-- Objects subscribed to changes are decoupled from objects pubishing the chnages.
+- Objects subscribed to changes are decoupled from objects publishing the changes.
 - Broadcasting support.
 - Changes can be hard to track down since it happens unexpectedly.
 
 ### Relationships
 - The communication of the Observer pattern can be encapsulated by the __Mediator__ pattern.
 - The instance of the Observer's communication can be represented by the __Singleton__ pattern.
+
+## State - [example](https://github.com/IanEscober/DesignPatterns/tree/master/src/State)
+### When
+- Object behavior depends on its state.
+- Conditional statements influence object behavior changes.
+
+### Effects
+- Encapsulates and modularizes state specific behavior.
+- Transitions are defined explicitly.
+- Reusability of object behavior.
+
+### Relationships
+- States can be shared optimally using the __Flyweight__ pattern.
+- Due to States only containing behavior, they are usually represented by the  __Singleton__ pattern.
 
 I hope the series did not teach you anything.... well in someway. The goal of the series was never to "teach", actually the goal is pretty similar to the original "[Gang of Four](https://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional-ebook/dp/B000SEIBB8)" book, which was to __list__ the Design Patterns used by the industry. The series aimed to show the different aspects of the Design patterns which is not commonly talked about. I think these aspects are very important __before__ learning to the apply the Design Patterns. We as developers love to jump in right into the code, well for one thing it's more fun. But as a "Profesional Developer" we need to understand that sample code is not enough, we need to consider the whole picture to better formulate an elegant, robust, and succint solution. By providing these "Secrets" I aim to show the other half of the picture so we can deeply understand what a Design Pattern really is and not naively implementing it.

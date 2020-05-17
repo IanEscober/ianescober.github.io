@@ -3,6 +3,8 @@ title: Design Pattern Secrets
 date: Y2020-04-14 22:02:20 +0800
 categories: [Tech, Csharp]
 tags: [Csharp, Design Patterns, Series]
+seo:
+  date_modified: 2020-04-14 22:02:20 +0800
 ---
 
 ![done](https://drive.google.com/uc?export=view&id=1ZgBe2E7h3Oe-sA3oK6x4SFHlEho-7avd)

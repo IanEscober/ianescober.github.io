@@ -3,6 +3,8 @@ title: Design Pattern Secrets - Behavioral
 date: Y2020-03-13 16:14:20 +0800
 categories: [Tech, Csharp]
 tags: [Csharp, Design Patterns, Series]
+seo:
+  date_modified: 2020-03-13 16:14:20 +0800
 ---
 
 ![Online Connection](https://drive.google.com/uc?export=view&id=1x_Bef7V88tmivLOSwG6AOb_aB1_htw3t)

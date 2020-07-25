@@ -70,7 +70,7 @@ public static void Main()
 ```
 
 ## Test
-Just from looking at the code we it to throw an error since it is sequential, the assignment of `null` was the last operation before the check. 
+Just from looking at the code we know it will throw an error since it is sequential, the assignment of `null` was the last operation before the check. 
 
 - __Gotcha #1: The code actually prints "Hello World" in the console.__
 
@@ -79,3 +79,27 @@ Let's make the `IEnumerable<Person>` into a list `var persons = repository.GetPe
 - __Gotcha #2: Now the code throws an error.__
 
 Pretty weird right? We have two behaviors on sequential code that looks familiar at first glance. We'll explore now the reason behind these.
+
+# The Why
+Deferred execution or lazy evaluation what does it mean? To put it simply it means that the code does not get "runned" in the current time or as we expected based on code structure. This is the reason why the code above seems to skip some code that we expect to have some kind of effect. There are two (2) items that are lazily evaluated `IEnumerable` and `Select` from the code above.
+
+- IEnumerable - items inside does not mean that there is data in memory. IEnumerable is more of a promise that something is in memory. We can exhibit this from the note above about the `AsQueryable()` extension. What it does is that it deferrs the storage of the items in memory for optimized query execution.
+
+Peeking the variable at runtime it shows `Expanding the Results View will enumerate the the IEnumerble` in other words materialize it to reality.
+// Picture
+
+Removing the `AsQueryable()` extension essentialy making it a list and peeking at the variable now shows its count and contents. The list is now concrete and in memory. 
+// Picture
+
+- Linq - operations are executed when they are needed. Generally Linq extensions follows the behavior of the list its querying on. The Linq operations are deferred until the list is materialized.
+// Picture
+
+Here the list is materialized using the `.ToList()` extension.
+// Picture
+
+# Conclusion
+We saw the "gotchas" of deferred execution or lazy evaluation can cause "phantom" bugs. We also explored the reasons behind it. The example is trivial we can easily debug it, in the production environment these pieces of code are seperated in classes or even projects which is much much harder to debug and locate. 
+
+How can we assure that the code we write are evaluated as we expect them to be? We can actually follow the rule of thumb we use in `async/await` in working in deferred nature. 
+
+> In `async` code we `await` something when we need the value now before proceeding in the code. On the otherhand, in `IEnumerable` or `Linq` we can `.ToList()` something when we need the value now before proceeding in the code.

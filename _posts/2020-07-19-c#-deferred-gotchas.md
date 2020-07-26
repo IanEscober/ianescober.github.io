@@ -2,7 +2,9 @@
 title: C# Deferred Gotchas
 date: Y2020-07-19 22:40:20 +0800
 categories: [Tech, Csharp]
-tags: [Csharp]
+tags: [Csharp, Linq]
+seo:
+  date_modified: 2020-07-19 22:40:20 +0800
 ---
 
 ![lost](https://drive.google.com/uc?export=view&id=1HA3x0wM6hC4o7Dz4OS1SSiLRmreGy-Un)

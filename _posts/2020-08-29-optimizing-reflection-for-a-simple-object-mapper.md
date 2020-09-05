@@ -22,7 +22,7 @@ public static T Map<T>(this DataReader reader)
         columnNames.Add(reader.GetName(i));
     }
 
-    // Iterate and store column name and row value to the Dictionary
+    // Iterate and store column name and row value to a Dictionary
     while (reader.Read())
     {
         foreach(var columnName in columnNames)
@@ -77,5 +77,25 @@ A lot of reflection is going on here. Let's break it down.
 2. Get the type of the object. - Line 5
 3. Get the properties of the object type. - Line 6
    - `BindingFlags.Public | BindingFlags.Instance` ensure that we only read the public and non static properties of the object.
-4. Check if the column name matches any properties in the object type. - Line 13
+4. Check if the column name matches to any properties in the object type. - Line 13
 5. Use the matched property based on the column name and use its setter to assign the value to the container object. - Line 18
+
+We manage to remove the dependecy from Json.NET by only using the BCL's. Now let's benchmark it against the Json.NET implementation.
+
+// Benchmark Image
+
+__Single Row__ - The perfromance of both implementations have negligible difference.
+__Multiple Rows__ - A noticeable difference can be seen. The mapper using reflection is about 4x slower than the one using Json.NET. The trend continues as the number of rows increases.
+
+# Why is it slow?
+.NET reflection is notoriously [slow inside loops](https://stackoverflow.com/questions/25458/how-costly-is-net-reflection). Lets first find the culprit in the code then optimize it as we go. The culprit resides inside the loop.
+
+```csharp
+propertyInfo.SetValue(objectContainer, value);
+```
+This line of code looks harmless at first but this code is the reason why our performance tanks. Each time `SetValue` is called it iterates to the object to find the property which it will set its value.
+
+```csharp
+var properties = objectType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+```
+

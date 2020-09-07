@@ -23,12 +23,9 @@ public static T Map<T>(this DataReader reader)
     }
 
     // Iterate and store column name and row value to a Dictionary
-    while (reader.Read())
+    foreach(var columnName in columnNames)
     {
-        foreach(var columnName in columnNames)
-        {
-            objectDictionary.Add(new Dictionary<string, object> { { columnName, reader[columnName] } });
-        }
+        objectDictionary.Add(new Dictionary<string, object> { { columnName, reader[columnName] } });
     }
 
     // Serialize then deserialize
@@ -47,55 +44,125 @@ Reflection allows us to peek at the properties of an object, specifically its na
 ```csharp
 public static T Map<T>(this DataReader reader) where T : new()
 {
-    var result = new List<T>();
     var objectContainer = new T();
     var objectType = typeof(T);
     var properties = objectType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
-    while (reader.Read())
+    for (int i = 0; i < reader.FieldCount; i++)
     {
-        for (int i = 0; i < reader.FieldCount; i++)
+        var columnName = reader.GetName(i);
+        var propertyInfo = properties.SingleOrDefault(prop => prop.Name == columnName);
+
+        if (propertyInfo != null)
         {
-            var columnName = reader.GetName(i);
-            var propertyInfo = properties.SingleOrDefault(prop => prop.Name == columnName);
-
-            if (propertyInfo != null)
-            {
-                var value = reader[columnName];
-                propertyInfo.SetValue(objectContainer, value);
-            }
+            var value = reader[columnName];
+            propertyInfo.SetValue(objectContainer, value);
         }
-
-        result.Add(result);
     }
+
+    return objectContainer;
 }
 ```
 
 A lot of reflection is going on here. Let's break it down.
 
-1. Create an object container to be hydrated. - Line 4
-2. Get the type of the object. - Line 5
-3. Get the properties of the object type. - Line 6
+1. Create an object container to be hydrated. - _Line 3_
+   - A generic constraint of `new()` allows us to do `new T()`, it specifies that the type must have a parameterless constructor. 
+2. Get the type of the object. - _Line 4_
+3. Get the properties of the object type. - _Line 5_
    - `BindingFlags.Public | BindingFlags.Instance` ensure that we only read the public and non static properties of the object.
-4. Check if the column name matches to any properties in the object type. - Line 13
-5. Use the matched property based on the column name and use its setter to assign the value to the container object. - Line 18
+4. Check if the column name matches to any properties in the object type. - _Line 10_
+5. Use the matched property based on the column name and use its setter to assign the value to the container object. - _Line 15_
 
 We manage to remove the dependecy from Json.NET by only using the BCL's. Now let's benchmark it against the Json.NET implementation.
 
-// Benchmark Image
+|-----------------|------------|-----------------|
+| Mapper          | Rows       | Mean            |
+|-----------------|------------|-----------------|
+| Reflection      | 1          | 868.8 µs        |
+| Json            | 1          | 692.2 µs        |
+| Reflection      | 10         | 8033.6 µs       |
+| Json            | 10         | 2593.4 µs       |
+| Reflection      | 100        | 78,895.3 µs     |
+| Json            | 100        | 21,849.9 µs     |
+| Reflection      | 10000      | 7,798,628.1 µs  |
+| Json            | 10000      | 2,106,959.9 µs  |
 
-__Single Row__ - The perfromance of both implementations have negligible difference.
+__Single Row__ - The performance of both implementations have negligible difference.
 __Multiple Rows__ - A noticeable difference can be seen. The mapper using reflection is about 4x slower than the one using Json.NET. The trend continues as the number of rows increases.
 
 # Why is it slow?
-.NET reflection is notoriously [slow inside loops](https://stackoverflow.com/questions/25458/how-costly-is-net-reflection). Lets first find the culprit in the code then optimize it as we go. The culprit resides inside the loop.
+.NET reflection is notoriously [slow inside loops](https://stackoverflow.com/questions/25458/how-costly-is-net-reflection). Our culprit is just one line of code. This line of code looks harmless at first but this code is the reason why our performance tanks. __Each time `SetValue` is called it iterates to the object to find the property which it will set its value.__
 
 ```csharp
 propertyInfo.SetValue(objectContainer, value);
 ```
-This line of code looks harmless at first but this code is the reason why our performance tanks. Each time `SetValue` is called it iterates to the object to find the property which it will set its value.
+
+The immediate idea is to cache it to prevent iteration. We have this line of code that gets the properties of the object. At first glance it looks like it caches the properties, why is it not providing any performance gains? Because it only caches the "object type" properties.
 
 ```csharp
 var properties = objectType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+```
+
+Solutions are rather unusual once we dive into reflection. Let's see why.
+
+# Optimizing Reflection
+The question is "how to cache the object property to prevent looking it up every operation?". We are used to caching data but in our situation there is no data, because we are just setting the data. What we have is an "operation" of setting the data to the property of the object. What if we cached that "action" instead. The idea was inspired by Jon Skeet's blog post - [Making Reflection Fly and Exploring Delegates](https://codeblog.jonskeet.uk/2008/08/09/making-reflection-fly-and-exploring-delegates/). The blog post explores into great detail about reflection and optimizing it. The solution is quiet complex but we can distill it into the code below.
+
+```csharp
+public static Action<T, object> CacheSetter<T>(MethodInfo method)
+{
+    return (model, value) => method.Invoke(model, new object[] { value });
+}
+```
+
+1. The method accepts a method info, which is the property's setter method. 
+   - `MethodInfo method`
+   - `public name { get; set; <- }`
+2. It returns an action delegate with the same signature as `propertyInfo.SetValue`. 
+   - `Action<T, object>`
+   - `(model, value) => ...`
+3. The body of the action invokes the property setter and passing the model and value.
+   - `... => method.Invoke(model, new object[] { value })`
+
+Using the method, we can now cache the property setters and store it to a dictionary that we can look up each iteration on the object.
+
+```csharp
+public static Dictionary<string, Action<T, object>> CacheProperties<T>(IDataReader reader) where T : new()
+{
+    var properties = new Dictionary<string, Action<T, object>>();
+
+    for (int i = 0; i < reader.FieldCount; i++)
+    {
+        var fieldName = reader.GetName(i);
+        var methodInfo = typeof(T).GetProperty(reader.GetName(i))?.GetSetMethod();
+
+        if (methodInfo != null)
+        {
+            var setter = CacheSetter<T>(methodInfo); // Cache the property setter
+            properties.Add(fieldName, setter);
+        }
+    }
+
+    return properties;
+}
+```
+
+The updated reflection mapper can be seen below.
+
+```csharp
+public static T Map<T>(IDataReader reader) where T : new()
+{
+    var result = new T();
+    var properties = CacheProperties<T>(reader);
+    
+    foreach (var property in properties)
+    {
+        var value = reader[property.Key];
+        property.Value(result, value);
+    }
+
+    return result;
+}
 ```
 

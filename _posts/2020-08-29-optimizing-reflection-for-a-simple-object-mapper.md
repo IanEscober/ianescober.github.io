@@ -3,6 +3,8 @@ title: Optimizing Reflection for a Simple Object Mapper
 date: Y2020-08-29 19:45:20 +0800
 categories: [Tech, Csharp]
 tags: [Csharp, Reflection, ORM, Database]
+seo:
+  date_modified: 2020-08-29 19:45:20 +0800
 ---
 
 ![Mapping](https://drive.google.com/uc?export=view&id=1-zsb1XlkT4kJhnmouLqopRWZTV2d50Dr)

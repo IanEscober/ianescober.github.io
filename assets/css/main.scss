@@ -40,8 +40,8 @@ body {
   z-index: 99;
   -webkit-transition: transform 0.4s ease;
   transition: transform 0.4s ease;
-  background: rgb(42, 30, 107);
-  background: linear-gradient(#faed9f 10%, #cc6d0f 100%);
+  background: ffe441;
+  background: linear-gradient(#ffe441 0%, #cc6d0f 100%);
 }
 
 #sidebar a {
@@ -147,33 +147,19 @@ body {
   width: 8rem;
   height: 7rem;
   border-radius: 10%;
-  border: 2px solid #b6b6b6;
   overflow: hidden;
   transform: translateZ(0); /* fixed the zoom in Safari */
-  -webkit-transition: border-color 0.35s ease-in-out;
-  -moz-transition: border-color 0.35s ease-in-out;
-  transition: border-color 0.35s ease-in-out;
-}
-
-#avatar:hover>a {
-  border-color: #fff;
+  text-align: center;
+  padding: 1rem;
+  background: #ffffff;
+  box-shadow: 2px 2px 5px #00000029;
 }
 
 #avatar img {
-  width: 100%;
+  width: 80%;
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-  -webkit-transition: all .5s !important;
-  -moz-transition: all .5s !important;
-  transition: all .5s !important;
-}
-
-#avatar img:hover {
-  -ms-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
 }
 
 #site-title {
@@ -181,21 +167,20 @@ body {
 }
 
 #site-title a {
-  color: #b6b6b6;
+  color: #ffffff;
   font-weight: 900;
   font-size: 1.5rem;
   letter-spacing: .5px;
 }
 
 #site-title a:hover {
-  color: #fff;
   text-decoration: none;
 }
 
 #site-subtitle {
   font-size: 95%;
   text-align: center;
-  color: #828282;
+  color: #ffffff;
   line-height: 1.2rem;
   word-spacing: 1px;
   margin: .5rem 1.5rem 2rem 1.5rem;

@@ -1,5 +1,5 @@
 ---
-title: What is Dev Dump Logs?
+title: What is Dump Logs?
 date: Y2019-09-29 20:49:20 +0800
 categories: [Blogging, Personal]
 tags: [Personal]
@@ -12,7 +12,7 @@ seo:
 > _"Software ever evolves but concepts remain the same"_
 {: style="font-size: 130%;"}
 
-Dev Dump Logs will serve as a “log” of today’s software concepts – from language constructs to enterprise architecture patterns. 
+Dump Logs will serve as a “log” of today’s software concepts – from language constructs to enterprise architecture patterns. 
 
 # Style
 ## Relevance

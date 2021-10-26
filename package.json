@@ -1,5 +1,5 @@
 {
-  "name": "dev-dump-logs",
+  "name": "dump-logs",
   "version": "1.0.0",
   "description": "Relevance. Depth. Random",
   "main": "index.js",

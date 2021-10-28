@@ -16,14 +16,13 @@ Dare I say back then programming was simple with Assembly? Because what you thin
 
 ## Bio
 
-I am a Software Developer focusing on the .NET ecosystem with a dash of React and Angular on the side. My current day job at YOUSOURCE INC. comprises of building applications from scratch – bootstrapping to deployment. My interests revolves around Software Architecture and DevOps and how we, as developers interconnect systems.
+I am a __Software Artisan__ focusing on the .NET ecosystem for the multi-platform and multi-cloud environments. My experience covers the SDLC - from client ideas to production deployments, implemented with agility at the forefront. My interests revolves around __designing software architectures__, __understanding what is to be agile__ and __harmonizing the business with the software.__
 
-## Knowledge Triangle
+## Knowledge Diagram
 
 Below is the span of my technical know-how:
 
-![Knowledge Triangle](https://drive.google.com/uc?export=view&id=1XoAQebWpDVQiCnnxsFsHL1LYJslu2Gzr)
-{: style="width: 50%; height: 50%; display: block; margin: 0 auto;"}
+![Knowledge Diagram](https://drive.google.com/uc?export=view&id=1iMwdDBGROH9PCgyNNBZfWMys8HqABq97)
 
 ## Projects
 

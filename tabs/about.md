@@ -6,7 +6,7 @@ tags: [Personal]
 ---
 
 ![Gabriel Ian E. Abel](https://drive.google.com/uc?export=view&id=1SOk7U8slklABxYZDAILi6oyuDuj_jwT3)
-{: style="width: 30%; height: 30%; float: right; text-align: center;"}
+{: style="width: 30%; height: 30%; float: right;" class="dp-container"}
 
 ## Background
 

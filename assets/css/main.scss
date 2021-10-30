@@ -748,6 +748,16 @@ table tbody td {
   filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.08));
 }
 
+.post .dp-container {
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0.5rem 0 0.5rem 0.5rem;
+  box-shadow: 3px 4px 5px #00000049;
+
+  img {
+    margin: 0
+  }
+}
 
 /* --- Effects classes --- */
 

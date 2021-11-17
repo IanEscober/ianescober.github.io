@@ -3,6 +3,8 @@ title: A Year (or two) in Software Development
 date: Y2021-10-05 19:00:00 +0800
 categories: [Blogging, Personal]
 tags: [Personal, Career, Software Development]
+seo:
+  date_modified: 2021-10-05 19:00:00 +0800
 ---
 
 Here we are again after a year (or two) of being a profesional software developer. I would like to highlight the terms developer, engineer, coder, programmer, etc. They do have different meaning as I found out after being one of each but in this post whenever I refer to this term I mean the same (the person that solves problems through code). The post's arrangement will feel familiar to someone who have been working on the Scrum framework. It is modeled similar to Sprint Retrospective (retro) which happens every end of the Sprint. The goal of it is to identify and assess the events that happened during the Sprint whether it might be good or bad. In the end a commitment or goal is set to be achieved for the next Sprint. And this structure fits perfectly for a reflection of a software developer.
@@ -40,7 +42,7 @@ I was very lucky to enough to have landed in an organization filled with talents
 Reiterating back to the first line. Those people provided growth not only technically but also interpersonally. Work is work unless others and you decide to go beyond that. Professionalism and friendship builds amazing things. It can also be easily invaded. We should strive for a clear explicit boundary between it. In the end of the day we are humans. __You are a clay to which the environment is the mold.__
 
 ## Software Development is Software Development
-Working with our strengths, an age old wisdom. More often that not it is true. Technical fields has always been my strong suite and that wisdom drove me to where I am now - and never have thought to question it, until now. What happens if we reach the pinnacle of our strengths or at the very least our goal to our strengths?... We explore. My view was never to be best technically but be good enough. __It is to have foundational knowledge that can be easily expanded because the heights of once achievement depends on the cultivated foundation.__
+Working with our strengths, an age old wisdom. More often that not it is true. Technical fields has always been my strong suite and that wisdom drove me to where I am now - and never have thought to question it, until now. What happens if we reach the pinnacle of our strengths or at the very least our goal to our strengths?... We explore. My view was never to be the best technically but to be good enough. __It is to have foundational knowledge that can be easily expanded because the heights of once achievement depends on the cultivated foundation.__
 
 Software development encompasses multiple fields since software is now everywhere. We could be dealing with logistics, healthcare, banking, people, etc. There is so much to explore in one field and working with our strengths I think is still premature to apply now. I still want to cultivate my foundation before building upwards toward my goals.
 

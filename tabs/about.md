@@ -16,7 +16,7 @@ Dare I say back then programming was simple with Assembly? Because what you thin
 
 ## Bio
 
-I am a __Software Artisan__ focusing on the .NET ecosystem for the multi-platform and multi-cloud environments. My experience covers the SDLC - from client ideas to production deployments, implemented with agility at the forefront. My interests revolves around __designing software architectures__, __understanding what is to be agile__ and __harmonizing the business with the software.__
+I am a __Software Artisan__ focusing on the .NET ecosystem for the multi-platform and multi-cloud environments. My experience covers the software development lifecycle - from client ideas to production deployments, implemented with agility at the forefront and prioritizing successful outcomes over raw output. My interests revolves around __designing software architectures__, __understanding what is to be agile__ and __harmonizing the business with the software.__
 
 ## Knowledge Diagram
 

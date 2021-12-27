@@ -5,6 +5,8 @@ categories: [Tech, IoT]
 tags: [IoT, Architecture, Software Development]
 ---
 
+![Broadcast](https://drive.google.com/uc?export=view&id=13F1PBe6n1dw9eiZLSSoLakwnmimqVHMc)
+
 It has been a journey, started from simple Arduino's to detect the capacity of garbage bins to plotting the real-time activity of vehicles. Back then I've implemented IoT with a simple flat data passed to a broker which was received by a server and then displayed to the UI. Now, deeply nested encoded data are recevied by custom framing servers, decoded by numerous background processes, stored efficiently to databases, and delivered as soon as possible to the UI in a neat manner. On top of that validity of the data must be considered. One things is clear, IoT in practice is substantially more complicated. This post will be not be the challenges of implementing IoT but rather the challenges of implementing _a system for IoT_ which I've experienced while being on a logistics project. Also, general solution/s are given at each point which describes on how we tackled each challenge.
 
 # A) Real-Time is not Real
@@ -18,6 +20,9 @@ Since we cannot guarantee that we can send, process, and display data in a few s
 # B) Data is Complex
 IoT devices are evolving with their sensors being more accurate and also the processor and memory specifications are getting more powerful. Smarter IoT devices can gather more complex data and the more sensors attached to them the more that data is. Memory is incredibly cheap nowadays that these devices have storage sizes that could rival modern phones and more memory means more space for even more complex data. Some of these devices has a system to ensure that no data is lost, which means that it does not discard data until it is sent to a server. These devices can contain messages up to megabytes in size which are the history of data detected by the sensors. The image below shows a data structure for a GPS tracker. Aside from the vital data like coordinates, speed, and etc. it can also contain data for the various parts of the vehicle like the engine temperature, door status, and even geofences.
 
+![Teltonika Codec](https://drive.google.com/uc?export=view&id=1l7pNvsGkIHjgE8Gx8IGMHCMmhhUXcZKI)
+![Teltonika AVL List](https://drive.google.com/uc?export=view&id=1gqmEhufmEp2_Kk4owqNGFnJsrLWorBiB)
+
 The evergrowing data acquired by these devices are overall progress to the IoT industry but are headaches to the systems receiving them. From the image above, data are encoded when sent to the server which means that the server will have to decode it. For vital data that needs to be exactly correct addtional checks are performed. As an example, the history of the vital data is going to be retrieved and compared with the latest one in order to detect anomalies or garbage values. Another form of verification is the order of data, which cannot be guaranteed when receiving it. If older data are receive, depends on the system, it may be discarded or craftfully appended with the newer ones. We can see that processing these data are not that simple and this was the driving point of A). The effect of the data to our system is experienced from architecture down to the code we write. The architecture should be able to handle data processing while doing other tasks for the system. The code must be efficient to maximize throughput. And these are especially required for mission-critical sytems.
 
 ## Solution
@@ -26,7 +31,9 @@ _For architectures_ - __Decouple the processing component and adopt an asynchron
 _For code_ - We should be mindful of the code we write. It is not enough that it is working but it should also be efficient. We are not writing code for request-response type interaction with users but for continuous streams of data. Libraries and language features help developers write code faster by packing logic to one-liners but in [hot paths](https://en.wikipedia.org/wiki/Hot_spot_(computer_programming)) of our code their overhead shows. __We can implement their functionality using primitives of the language (e.g. In C# Linq's `.Select` vs `for-loop`) which is as fast as we can go.__ Concurrency allows us to maximize the available CPU by running multiple tasks at once but developers often mistake asynchronous with parallel processing. __Having `async` in our code does not equate to multiple tasks being done.__
 
 # C) Data is Infinite
-IoT promises "real-time" by being eternally connected to the internet which results to a neverending flow of data. Not a problem to store since storage is incredibly cheap. The image below shows the pricing table for [AWS S3](https://aws.amazon.com/s3/pricing/).
+IoT promises "real-time" by being eternally connected to the internet which results to a neverending flow of data. Not a problem to store since storage is incredibly cheap. The image below shows the pricing table for [AWS S3](https://aws.amazon.com/s3/).
+
+![AWS S3 Pricing](https://drive.google.com/uc?export=view&id=1NiLEOC9U80jW7WY8lYrFC2877YMiPLnY)
 
 Relatively cheap for data at rest. But how about for data in motion? Data wherein stored in databases, caches, etc. The cost of constantly reading, writing, updating, deleting to disk can rack up. Not to mention that their storage capacity is limited and their performance is inversely proportional to the amount of data. However database solutions offered by cloud providers nowadays can handle increasing volume by automatically allocating more storage. There are also database technologies specifically designed to work with massive volumes of data. But it all comes down to our finite resources - disk partitions, disk capacity, attachable disks, and especially money. 
 
@@ -37,4 +44,11 @@ _In performance_ - When dealing with massive amounts of data, blindly storing is
 
 _In space_ - No matter how optimized our systems and structures are there will come a time that our storage/tables/collections will be filled. These data are also ageing. Does the data 7 months ago matter? For analytics and legal purposes it is important but for the main functionalities of our system and the daily processes of our users, probably not. __To reclaim space, aged data (data that provides minimal to zero value in daily processes) should be archived.__ The amount/age of data that will be archived will depend on the business and should be clear in the user agreement for legal reasons.
 
+# Conclusion
 There is no doubt that IoT is amazing, the systems we have and are continually building today are necessary for building a sustainable future. The data that these IoT devices produce gives us insights that we've never seen or thought of before that innovates on how we perceive reality. But as all things it will come at a cost prominently the complexity of the systems supporting it and large amounts of storage for the data. It it true that memory is cheap today but what is cheap when we are dealing with practically infinite amounts of data. As we make more devices smarter we are also making the systems for it smarter. Us developers carry these burdens similar to how the early engineers are tackling with transportation. The complexity of engines (systems), the negligence of fuel (storage) abundance, and the oversight of the effects of it to nature.
+
+# Resources
+- [Teltonika Codec](https://wiki.teltonika-gps.com/view/Codec)
+- [Teltonika AVL List](https://wiki.teltonika-mobility.com/view/Full_AVL_ID_List)
+- [AWS S3 Pricing](https://aws.amazon.com/s3/pricing/)
+- [MongoDB Design Patterns](https://www.mongodb.com/blog/post/building-with-patterns-a-summary)

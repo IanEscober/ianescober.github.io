@@ -3,6 +3,8 @@ title: IoT in Practice
 date: Y2021-11-18 13:30:00 +0800
 categories: [Tech, IoT]
 tags: [IoT, Architecture, Software Development]
+seo:
+  date_modified: 2021-11-18 13:30:00 +0800
 ---
 
 ![Broadcast](https://drive.google.com/uc?export=view&id=13F1PBe6n1dw9eiZLSSoLakwnmimqVHMc)
